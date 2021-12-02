@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Bulk Consulting: Databricks Exam Practice Test</title>
+</head>
+<body>
+    <main>
+        <div id="div_startTest">
+            <button class="" id="btn_exam" onclick="handleBntTimer(this)" data-start-exam="0">
+                Start Exam
+            </button>
+        </div>
+        <div id="timer">
+           <span>02:00</span>
+        </div>
+        <div id="user_message">
+                
+        </div>
+        <form action="" onsubmit="submitAnswer(event)" id="form1">
+            <div id="form_description">
+                Enunciado
+            </div>
+            <div id="form_alternatives">
+                <label for="form_alt1">
+                    <input type="radio" value="A" id="form_alt1" name="answer" />Alternativa A
+                </label>
+                <label for="form_alt2">
+                    <input type="radio" value="B" id="form_alt2" name="answer" />Alternativa B
+                </label>
+                <label for="form_alt3">
+                    <input type="radio" value="C" id="form_alt3" name="answer" />Alternativa C
+                </label>
+                <label for="form_alt4">
+                    <input type="radio" value="D" id="form_alt4" name="answer" />Alternativa D
+                </label>
+                <label for="form_alt5">
+                    <input type="radio" value="E" id="form_alt5" name="answer" />Alternativa E
+                </label>
+            </div>
+            <div id="div_formButton">
+                <button id="btn_registerAnwser">
+                    Enviar resposta
+                </button>
+            </div>
+        </form>
+    </main>
+    
+</body>
+</html>
