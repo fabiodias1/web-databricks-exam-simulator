@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Bulk Consulting: Databricks Exam Practice Test</title>
+    <title>Databricks Exam Practice Test</title>
 </head>
 <body>
     <main>
         <div id="div_startTest">
-            <button class="" id="btn_exam" onclick="handleBntTimer(this)" data-start-exam="0">
+            <button 
+                class="" 
+                id="btn_exam" 
+                onclick="handleBntTimer(this)" 
+                data-start-exam="0"
+                disabled
+            >
                 Start Exam
             </button>
         </div>
@@ -49,6 +55,8 @@
             </div>
         </form>
     </main>
-    
+    <script>
+        loadAllQuestions();
+    </script>
 </body>
 </html>
