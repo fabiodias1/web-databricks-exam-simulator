@@ -1,38 +1,664 @@
 {
-    "questions":  [
+    "questions": [
         {
+            "description": "Which of the following statements about the Sparkdriver is incorrect?\n",
             "id": 1,
-            "description": "Which of the following DataFrame operations is always classified as a narrow transformation?",
             "options": [
-                "A. DataFrame.sort()",
-                "B. DataFrame.distinct()",
-                "C. DataFrame.repartition()",
-                "D. DataFrame.select()",
-                "E. DataFrame.join()"
+                "A.The Spark driver is the node in which the Spark application'smain method runs to\ncoordinate the Spark application.\n",
+                "B.The Spark driver is horizontally scaled to increaseoverall processing throughput.\n",
+                "C.The Spark driver contains the SparkContext object.\n",
+                "D.The Spark driver is responsible for scheduling theexecution of data by various worker\nnodes in cluster mode.\n",
+                "E.The Spark driver should be as close as possible toworker nodes for optimal performance.\n"
             ]
         },
         {
+            "description": "Which of the following describes nodes in cluster-modeSpark?\n",
             "id": 2,
-            "description": "Which of the following is the default storage level for persist() for a non-streaming\nDataFrame/Dataset?",
             "options": [
-                "A. MEMORY_AND_DISK",
-                "B. MEMORY_AND_DISK_SER",
-                "C. DISK_ONLY",
-                "D. MEMORY_ONLY_SER",
-                "E. MEMORY_ONLY"
+                "A.Nodes are the most granular level of execution inthe Spark execution hierarchy.\n",
+                "B.There is only one node and it hosts both the driverand executors.\n",
+                "C.Nodes are another term for executors, so they areprocessing engine instances for\nperforming computations.\n",
+                "D.There are driver nodes and worker nodes, both of whichcan scale horizontally.\n",
+                "E.Worker nodes are machines that host the executorsresponsible for the execution of tasks.\n"
             ]
         },
         {
+            "description": "Which of the following statements about slots is true?\n",
             "id": 3,
-            "description": "Which of the following operations is most likely to induce a skew in the size of your data's\npartitions?",
             "options": [
-                "A. DataFrame.collect()",
-                "B. DataFrame.cache()",
-                "C. DataFrame.repartition(n)",
-                "D. DataFrame.coalesce(n)",
-                "E. DataFrame.persist()"
+                "A.There must be more slots than executors.\n",
+                "B.There must be more tasks than slots.\n",
+                "C.Slots are the most granular level of execution inthe Spark execution hierarchy.\n",
+                "D.Slots are not used in cluster mode.\n",
+                "E.Slots are resources for parallelization within a Sparkapplication.\n"
+            ]
+        },
+        {
+            "description": "Which of the following is a combination of a blockof data and a set of transformers that will run on\na single executor?\n",
+            "id": 4,
+            "options": [
+                "A.Executor\n",
+                "B.Node\n",
+                "C.Job\n",
+                "D.Task\n",
+                "E.Slot\n"
+            ]
+        },
+        {
+            "description": "Which of the following is a group of tasks that canbe executed in parallel to compute the same set\nof operations on potentially multiple machines?\n",
+            "id": 5,
+            "options": [
+                "A.Job\n",
+                "B.Slot\n",
+                "C.Executor\n",
+                "D.Task\n",
+                "E.Stage\n"
+            ]
+        },
+        {
+            "description": "Which of the following describes a shuffle?\n",
+            "id": 6,
+            "options": [
+                "A. A shuffle is the process by which data is compared across partitions.\n",
+                "B. A shuffle is the process by which data is compared across executors.\n",
+                "C. A shuffle is the process by which partitions are allocated to tasks.\n",
+                "D. A shuffle is the process by which partitions are ordered for write.\n",
+                "E. A shuffle is the process by which tasks are ordered for execution.\n"
+            ]
+        },
+        {
+            "description": "DataFrame df is very large with a large number of partitions, more than there are executors in the\ncluster. Based on this situation, which of the following is incorrect? Assume there is one core per\nexecutor.\n",
+            "id": 7,
+            "options": [
+                "A. Performance will be suboptimal because not all executors will be utilized at the same time.\n",
+                "B. Performance will be suboptimal because not all data can be processed at the same time.\n",
+                "C. There will be a large number of shuffle connections performed on DataFrame df when\noperations inducing a shuffle are called.\n",
+                "D. There will be a lot of overhead associated with managing resources for data processing\nwithin each task.\n",
+                "E. There might be risk of out-of-memory errors depending on the size of the executors in the\ncluster.\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations will trigger evaluation?\n",
+            "id": 8,
+            "options": [
+                "A. DataFrame.filter()\n",
+                "B. DataFrame.distinct()\n",
+                "C. DataFrame.intersect()\n",
+                "D. DataFrame.join()\n",
+                "E. DataFrame.count()\n"
+            ]
+        },
+        {
+            "description": "Which of the following describes the difference between transformations and actions?\n",
+            "id": 9,
+            "options": [
+                "A. Transformations work on DataFrames/Datasets while actions are reserved for native\nlanguage objects.\n",
+                "B. There is no difference between actions and transformations.\n",
+                "C. Actions are business logic operations that do not induce execution while transformations\nare execution triggers focused on returning results.\n",
+                "D. Actions work on DataFrames/Datasets while transformations are reserved for native\nlanguage objects.\n",
+                "E. Transformations are business logic operations that do not induce execution while actions\nare execution triggers focused on returning results.\n"
+            ]
+        },
+        {
+            "description": "Which of the following DataFrame operations is always classified as a narrow transformation?\n",
+            "id": 10,
+            "options": [
+                "A. DataFrame.sort()\n",
+                "B. DataFrame.distinct()\n",
+                "C. DataFrame.repartition()\n",
+                "D. DataFrame.select()\n",
+                "E. DataFrame.join()\n"
+            ]
+        },
+        {
+            "description": "Spark has a few different execution/deployment modes: cluster, client, and local. Which of the\nfollowing describes Spark's execution/deployment mode?\n",
+            "id": 11,
+            "options": [
+                "A. Spark's execution/deployment mode determines where the driver and executors are\nphysically located when a Spark application is run\n",
+                "B. Spark's execution/deployment mode determines which tasks are allocated to which\nexecutors in a cluster\n",
+                "C. Spark's execution/deployment mode determines which node in a cluster of nodes is\nresponsible for running the driver program\n",
+                "D. Spark's execution/deployment mode determines exactly how many nodes the driver will\nconnect to when a Spark application is run\n",
+                "E. Spark's execution/deployment mode determines whether results are run interactively in a\nnotebook environment or in batch\n"
+            ]
+        },
+        {
+            "description": "Which of the following cluster configurations will ensure the completion of a Spark application in\nlight of a worker node failure?\n\nScenario #1\n1 Driver & 1 Executor\n- 100 GB and 200 Core per Executor\n* Fixed cluster with one node\n\nScenario #4\n1 Driver & 2 Executors\n- 50 GB and 100 Core per Executor\n* Fixed cluster with two nodes\n\nScenario #5\n1 Driver & 4 Executor\n- 25 GB and 50 Core per Executor\n* Fixed cluster with 4 nodes\n\nScenario #6\n1 Driver & 8 Executor\n- 12.5 GB and 25 Core per Executor\n* Fixed cluster with 8 nodes\n\nNote: each configuration has roughly the same compute power using 100GB of RAM and 200 cores.\n",
+            "id": 12,
+            "options": [
+                "A. Scenario #1\n",
+                "B. They should all ensure completion because worker nodes are fault-tolerant.\n",
+                "C. Scenario #4\n",
+                "D. Scenario #5\n",
+                "E. Scenario #6\n"
+            ]
+        },
+        {
+            "description": "Which of the following describes out-of-memory errors in Spark?\n",
+            "id": 13,
+            "options": [
+                "A. An out-of-memory error occurs when either the driver or an executor does not have enough\nmemory to collect or process the data allocated to it.\n",
+                "B. An out-of-memory error occurs when Spark's storage level is too lenient and allows data\nobjects to be cached to both memory and disk.\n",
+                "C. An out-of-memory error occurs when there are more tasks than are executors regardless of\nthe number of worker nodes.\n",
+                "D. An out-of-memory error occurs when the Spark application calls too many transformations\nin a row without calling an action regardless of the size of the data object on which the\ntransformations are operating.\n",
+                "E. An out-of-memory error occurs when too much data is allocated to the driver for\ncomputational purposes.\n"
+            ]
+        },
+        {
+            "description": "Which of the following is the default storage level for persist() for a non-streaming\nDataFrame/Dataset?\n",
+            "id": 14,
+            "options": [
+                "A. MEMORY_AND_DISK\n",
+                "B. MEMORY_AND_DISK_SER\n",
+                "C. DISK_ONLY\n",
+                "D. MEMORY_ONLY_SER\n",
+                "E. MEMORY_ONLY\n"
+            ]
+        },
+        {
+            "description": "Which of the following describes a broadcast variable?\n",
+            "id": 15,
+            "options": [
+                "A. A broadcast variable is a Spark object that needs to be partitioned onto multiple worker\nnodes because it's too large to fit on a single worker node.\n",
+                "B. A broadcast variable can only be created by an explicit call to the broadcast() operation.\n",
+                "C. A broadcast variable is entirely cached on the driver node so it doesn't need to be present\non any worker nodes.\n",
+                "D. A broadcast variable is entirely cached on each worker node so it doesn't need to be\nshipped or shuffled between nodes with each stage.\n",
+                "E. A broadcast variable is saved to the disk of each worker node to be easily read into memory\nwhen needed.\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations is most likely to induce a skew in the size of your data's\npartitions?\n",
+            "id": 16,
+            "options": [
+                "A. DataFrame.collect()\n",
+                "B. DataFrame.cache()\n",
+                "C. DataFrame.repartition(n)\n",
+                "D. DataFrame.coalesce(n)\n",
+                "E. DataFrame.persist()\n"
+            ]
+        },
+        {
+            "description": "Which of the following data structures are Spark DataFrames built on top of?\n",
+            "id": 17,
+            "options": [
+                "A. Arrays\n",
+                "B. Strings\n",
+                "C. RDDs\n",
+                "D. Vectors\n",
+                "E. SQL Tables\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a DataFrame containing only column storeId and\ncolumn division from DataFrame storesDF?\n",
+            "id": 18,
+            "options": [
+                "A. storesDF.select(\"storeId\").select(\"division\")\n",
+                "B. storesDF.select(storeId, division)\n",
+                "C. storesDF.select(\"storeId\", \"division\")\n",
+                "D. storesDF.select(col(\"storeId\", \"division\"))\n",
+                "E. storesDF.select(storeId).select(division)\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a DataFrame containing all columns from DataFrame\nstoresDF except for column sqft and column customerSatisfaction?\nA sample of DataFrame storesDF is below:\n-------------------------------------------------------------------------------------\n|storeID|open |openDate  |division     |sqft |numberOfEmployees|customerSatisfaction|\n-------------------------------------------------------------------------------------\n|0      |true |1100746394|Utah         |43161|61               |71.1                |\n|1      |true |944572255 |West Virginia|18132|96               |43.46               |\n|2      |false|9254956288|West Virginia|79520|45               |36.93               |\n|3      |true |1397353092|Texas        |47751|78               |47.19               |\n|4      |true |986505057 |Delaware     |81483|95               |25.24               |\n|...    |...  |...       |...          |...  |...              |...                 |\n-------------------------------------------------------------------------------------\n",
+            "id": 19,
+            "options": [
+                "A. storesDF.drop(\"sqft\", \"customerSatisfaction\")\n",
+                "B. storesDF.select(\"storeId\", \"open\", \"openDate\", \"division\")\n",
+                "C. storesDF.select(-col(sqft), -col(customerSatisfaction))\n",
+                "D. storesDF.drop(sqft, customerSatisfaction)\n",
+                "E. storesDF.drop(col(sqft), col(customerSatisfaction))\n"
+            ]
+        },
+        {
+            "description": "The below code shown block contains an error. The code block is intended to return a DataFrame\ncontaining only the rows from DataFrame storesDF where the value in DataFrame storesDF's\n\"sqft\" column is less than or equal to 25,000. Assume DataFrame storesDF is the only defined\nlanguage variable. Identify the error.\nCode block:\nstoresDF.filter(sqft <= 25000)\n",
+            "id": 20,
+            "options": [
+                "A. The column name sqft needs to be quoted like storesDF.filter(\"sqft\" <=\n25000).\n",
+                "B. The column name sqft needs to be quoted and wrapped in the col() function like\nstoresDF.filter(col(\"sqft\") <= 25000).\n",
+                "C. The sign in the logical condition inside filter() needs to be changed from <= to >.\n",
+                "D. The sign in the logical condition inside filter() needs to be changed from <= to >=.\n",
+                "E. The column name sqft needs to be wrapped in the col() function like\nstoresDF.filter(col(sqft) <= 25000).\n"
+            ]
+        },
+        {
+            "description": "The code block shown below should return a DataFrame containing only the rows from DataFrame\nstoresDF where the value in column sqft is less than or equal to 25,000 OR the value in column\ncustomerSatisfaction is greater than or equal to 30. Choose the response that correctly fills\nin the numbered blanks within the code block to complete this task.\nCode block:\nstoresDF.__1__(__2__ __3__ __4__)\n",
+            "id": 21,
+            "options": [
+                "A.\n1. filter\n2. (col(\"sqft\") <= 25000)\n3. |\n4. (col(\"customerSatisfaction\") >= 30)\n",
+                "B.\n1. drop\n2. (col(sqft) <= 25000)\n3. |\n4. (col(customerSatisfaction) >= 30)\n",
+                "C.\n1. filter\n2. col(\"sqft\") <= 25000\n3. |\n4. col(\"customerSatisfaction\") >= 30\n",
+                "D.\n1. filter\n2. col(\"sqft\") <= 25000\n3. or\n4. col(\"customerSatisfaction\") >= 30\n",
+                "E.\n1. filter\n2. (col(\"sqft\") <= 25000)\n3. or\n4. (col(\"customerSatisfaction\") >= 30)\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can be used to convert a DataFrame column from one type to\nanother type?\n",
+            "id": 22,
+            "options": [
+                "A. col().cast()\n",
+                "B. convert()\n",
+                "C. castAs()\n",
+                "D. col().coerce()\n",
+                "E. col()\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a new DataFrame with a new column sqft100 that is\n1/100th of column sqft in DataFrame storesDF? Note that column sqft100 is not in the original\nDataFrame storesDF.\n",
+            "id": 23,
+            "options": [
+                "A. storesDF.withColumn(\"sqft100\", col(\"sqft\") * 100)\n",
+                "B. storesDF.withColumn(\"sqft100\", sqft / 100)\n",
+                "C. storesDF.withColumn(col(\"sqft100\"), col(\"sqft\") / 100)\n",
+                "D. storesDF.withColumn(\"sqft100\", col(\"sqft\") / 100)\n",
+                "E. storesDF.newColumn(\"sqft100\", sqft / 100)\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a new DataFrame from DataFrame storesDF where\ncolumn numberOfManagers is the constant integer 1?\n",
+            "id": 24,
+            "options": [
+                "A. storesDF.withColumn(\"numberOfManagers\", col(1))\n",
+                "B. storesDF.withColumn(\"numberOfManagers\", 1)\n",
+                "C. storesDF.withColumn(\"numberOfManagers\", lit(1))\n",
+                "D. storesDF.withColumn(\"numberOfManagers\", lit(\"1\"))\n",
+                "E. storesDF.withColumn(\"numberOfManagers\", IntegerType(1))\n"
+            ]
+        },
+        {
+            "description": "The code block shown below contains an error. The code block intends to return a new DataFrame\nwhere column storeCategory from DataFrame storesDF is split at the underscore character\ninto column storeValueCategory and column storeSizeCategory. Identify the error.\nA sample of DataFrame storesDF is displayed below:\n-------------------------------------------\n|storeID|open |openDate  |storeCategory   |\n-------------------------------------------\n|0      |true |1100746394|VALUE_MEDIUM    |\n|1      |true |944572255 |MAINSTREAM_SMALL|\n|2      |false|925495628 |PREMIUN_LARGE   |\n|3      |true |1397353092|VALUE_MEDIUM    |\n|4      |true |986505057 |VALUE_LARGE     |\n|5      |true |955988614 |PREMIUN_LARGE   |\n|...    |...  |...       |...             |\n-------------------------------------------\nCode block:\n(storesDF.withColumn(\n\t\t\"storeValueCategory\", col(\"storeCategory\").split(\"_\")[0]\n\t).withColumn(\n\t\t\"storeSizeCategory\", col(\"storeCategory\").split(\"_\")[1]\n\t)\n)\n",
+            "id": 25,
+            "options": [
+                "A. The split() operation comes from the imported functions object. It accepts a string\ncolumn name and split character as arguments. It is not a method of a Column object.\n",
+                "B. The split() operation comes from the imported functions object. It accepts a Column\nobject and split character as arguments. It is not a method of a Column object.\n",
+                "C. The index values of 0 and 1 should be provided as second arguments to the split()\noperation rather than indexing the result.\n",
+                "D. The index values of 0 and 1 are not correct - they should be 1 and 2, respectively.\n",
+                "E. The withColumn() operation cannot be called twice in a row.\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can be used to split an array column into an individual DataFrame\nrow for each element in the array?\n",
+            "id": 26,
+            "options": [
+                "A. extract()\n",
+                "B. split()\n",
+                "C. explode()\n",
+                "D. arrays_zip()\n",
+                "E. unpack()\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a new DataFrame where column storeCategory is an\nall-lowercase version of column storeCategory in DataFrame storesDF? Assume DataFrame\nstoresDF is the only defined language variable.\n",
+            "id": 27,
+            "options": [
+                "A. storesDF.withColumn(\"storeCategory\",\nlower(col(\"storeCategory\")))\n",
+                "B. storesDF.withColumn(\"storeCategory\",\ncol(\"storeCategory\").lower())\n",
+                "C. storesDF.withColumn(\"storeCategory\",\ntolower(col(\"storeCategory\")))\n",
+                "D. storesDF.withColumn(\"storeCategory\", lower(\"storeCategory\"))\n",
+                "E. storesDF.withColumn(\"storeCategory\", lower(storeCategory))\n"
+            ]
+        },
+        {
+            "description": "The code block shown below contains an error. The code block is intended to return a new\nDataFrame where column division from DataFrame storesDF has been renamed to column\nstate and column managerName from DataFrame storesDF has been renamed to column\nmanagerFullName. Identify the error.\nCode block:\n(storesDF.withColumnRenamed(\"state\", \"division\")\n\t.withColumnRenamed(\"managerFullName\", \"managerName\"))\n",
+            "id": 28,
+            "options": [
+                "A. Both arguments to operation withColumnRenamed() should be wrapped in the col()\noperation.\n",
+                "B. The operations withColumnRenamed() should not be called twice, and the first\nargument should be [\"state\", \"division\"] and the second argument should be\n[\"managerFullName\", \"managerName\"].\n",
+                "C. The old columns need to be explicitly dropped.\n",
+                "D. The first argument to operation withColumnRenamed() should be the old column name\nand the second argument should be the new column name.\n",
+                "E. The operation withColumnRenamed() should be replaced with withColumn().\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a DataFrame where rows in DataFrame storesDF\ncontaining missing values in every column have been dropped?\n",
+            "id": 29,
+            "options": [
+                "A. storesDF.nadrop(\"all\")\n",
+                "B. storesDF.na.drop(\"all\", subset = \"sqft\")\n",
+                "C. storesDF.dropna()\n",
+                "D. storesDF.na.drop()\n",
+                "E. storesDF.na.drop(\"all\")\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations fails to return a DataFrame where every row is unique?\n",
+            "id": 30,
+            "options": [
+                "A. DataFrame.distinct()\n",
+                "B. DataFrame.drop_duplicates(subset = None)\n",
+                "C. DataFrame.drop_duplicates()\n",
+                "D. DataFrame.dropDuplicates()\n",
+                "E. DataFrame.drop_duplicates(subset = \"all\")\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks will not always return the exact number of distinct values in\ncolumn division?\n",
+            "id": 31,
+            "options": [
+                "A. storesDF.agg(approx_count_distinct(col(\"division\")).alias(\"divi\nsionDistinct\"))\n",
+                "B. storesDF.agg(approx_count_distinct(col(\"division\"),\n0).alias(\"divisionDistinct\"))\n",
+                "C. storesDF.agg(countDistinct(col(\"division\")).alias(\"divisionDist\ninct\"))\n",
+                "D. storesDF.select(\"division\").dropDuplicates().count()\n",
+                "E. storesDF.select(\"division\").distinct().count()\n"
+            ]
+        },
+        {
+            "description": "The code block shown below should return a new DataFrame with the mean of column sqft from\nDataFrame storesDF in column sqftMean. Choose the response that correctly fills in the\nnumbered blanks within the code block to complete this task.\nCode block:\nstoresDF.__1__(__2__(__3__).alias(\"sqftMean\"))\n",
+            "id": 32,
+            "options": [
+                "A.\n1. agg\n2. mean\n3. col(\"sqft\")\n",
+                "B.\n1. mean\n2. col\n3. \"sqft\"\n",
+                "C.\n1. withColumn\n2. mean\n3. col(\"sqft\")\n",
+                "D.\n1. agg\n2. mean\n3. \"sqft\"\n",
+                "E.\n1. agg\n2. average\n3. col(\"sqft\")\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns the number of rows in DataFrame storesDF?\n",
+            "id": 33,
+            "options": [
+                "A. storesDF.withColumn(\"numberOfRows\", count())\n",
+                "B. storesDF.withColumn(count().alias(\"numberOfRows\"))\n",
+                "C. storesDF.countDistinct()\n",
+                "D. storesDF.count()\n",
+                "E. storesDF.agg(count())\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns the sumof the values in column sqft in DataFrame\nstoresDF grouped by distinct value in column division?\n",
+            "id": 34,
+            "options": [
+                "A. storesDF.groupBy.agg(sum(col(\"sqft\")))\n",
+                "B. storesDF.groupBy(\"division\").agg(sum())\n",
+                "C. storesDF.agg(groupBy(\"division\").sum(col(\"sqft\")))\n",
+                "D. storesDF.groupby.agg(sum(col(\"sqft\")))\n",
+                "E. storesDF.groupBy(\"division\").agg(sum(col(\"sqft\")))\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a DataFrame containing summary statistics only for\ncolumn sqft in DataFrame storesDF?\n",
+            "id": 35,
+            "options": [
+                "A. storesDF.summary(\"mean\")\n",
+                "B. storesDF.describe(\"sqft\")\n",
+                "C. storesDF.summary(col(\"sqft\"))\n",
+                "D. storesDF.describeColumn(\"sqft\")\n",
+                "E. storesDF.summary()\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can be used to sort the rows of a DataFrame?\n",
+            "id": 36,
+            "options": [
+                "A. sort() and orderBy()\n",
+                "B. orderby()\n",
+                "C. sort() and orderby()\n",
+                "D. orderBy()\n",
+                "E. sort()\n"
+            ]
+        },
+        {
+            "description": "The code block shown below contains an error. The code block is intended to return a 15 percent\nsample of rows from DataFrame storesDF without replacement. Identify the error.\nCode block:\nstoresDF.sample(True, fraction = 0.15)\n",
+            "id": 37,
+            "options": [
+                "A. There is no argument specified to the seed parameter.\n",
+                "B. There is no argument specified to the withReplacement parameter.\n",
+                "C. The sample() operation does not sample without replacement - sampleby() should be used instead.\n",
+                "D. The sample() operation is not reproducible.\n",
+                "E. The first argument True sets the sampling to be with replacement.\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can be used to return the top n rows from a DataFrame?\n",
+            "id": 38,
+            "options": [
+                "A. DataFrame.n()\n",
+                "B. DataFrame.take(n)\n",
+                "C. DataFrame.head\n",
+                "D. DataFrame.show(n)\n",
+                "E. DataFrame.collect(n)\n"
+            ]
+        },
+        {
+            "description": "The code block shown below should extract the value for column sqft from the first row of\nDataFrame storesDF. Choose the response that correctly fills in the numbered blanks within the\ncode block to complete this task.\nCode block:\n__1__.__2__.__3__\n",
+            "id": 39,
+            "options": [
+                "A.\n1. storesDF\n2. first\n3. col(\"sqft\")\n",
+                "B.\n1. storesDF\n2. first\n3. sqft\n",
+                "C.\n1. storesDF\n2. first\n3. [\"sqft\"]\n",
+                "D.\n1. storesDF\n2. first()\n3. sqft\n",
+                "E.\n1. storesDF\n2. first()\n3. col(\"sqft\")\n"
+            ]
+        },
+        {
+            "description": "Which of the following lines of code prints the schema of a DataFrame?\n",
+            "id": 40,
+            "options": [
+                "A. print(storesDF)\n",
+                "B. storesDF.schema\n",
+                "C. print(storesDF.schema())\n",
+                "D.\nDataFrame.printSchema()\n",
+                "E. DataFrame.schema()\n"
+            ]
+        },
+        {
+            "description": "In what order should the below lines of code be run in order to create and register a SQL UDF named\n\"ASSESS_PERFORMANCE\" using the Python function assessPerformance and apply it to\ncolumn customerSatistfaction in table stores?\nLines of code:\n1. spark.udf.register(\"ASSESS_PERFORMANCE\", assessPerformance)\n2. spark.sql(\"SELECT customerSatisfaction,\nassessPerformance(customerSatisfaction) AS result FROM stores\")\n3. spark.udf.register(assessPerformance, \"ASSESS_PERFORMANCE\")\n4. spark.sql(\"SELECT customerSatisfaction,\nASSESS_PERFORMANCE(customerSatisfaction) AS result FROM\nstores\")\n",
+            "id": 41,
+            "options": [
+                "A. 3, 4\n",
+                "B. 1, 4\n",
+                "C. 3, 2\n",
+                "D. 2\n",
+                "E. 1, 2\n"
+            ]
+        },
+        {
+            "description": "In what order should the below lines of code be run in order to create a Python UDF\nassessPerformanceUDF() using the integer-returning Python function assessPerformance\nand apply it to column customerSatisfaction in DataFrame storesDF?\nLines of code:\n1. assessPerformanceUDF = udf(assessPerformance, IntegerType)\n2. assessPerformanceUDF = spark.register.udf(\"ASSESS_PERFORMANCE\",assessPerformance)\n3. assessPerformanceUDF = udf(assessPerformance, IntegerType())\n4. storesDF.withColumn(\"result\",assessPerformanceUDF(col(\"customerSatisfaction\")))\n5. storesDF.withColumn(\"result\",assessPerformance(col(\"customerSatisfaction\")))\n6. storesDF.withColumn(\"result\",ASSESS_PERFORMANCE(col(\"customerSatisfaction\")))\n",
+            "id": 42,
+            "options": [
+                "A. 3, 4\n",
+                "B. 2, 6\n",
+                "C. 3, 5\n",
+                "D. 1, 4\n",
+                "E. 2, 5\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can execute a SQL query on a table?\n",
+            "id": 43,
+            "options": [
+                "A. spark.query()\n",
+                "B. DataFrame.sql()\n",
+                "C. spark.sql()\n",
+                "D. DataFrame.createOrReplaceTempView()\n",
+                "E. DataFrame.createTempView()\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks creates a single-column DataFrame from Python list years\nwhich is made up of integers?\n",
+            "id": 44,
+            "options": [
+                "A. spark.createDataFrame([years], IntegerType())\n",
+                "B. spark.createDataFrame(years, IntegerType())\n",
+                "C. spark.DataFrame(years, IntegerType())\n",
+                "D. spark.createDataFrame(years)\n",
+                "E. spark.createDataFrame(years, IntegerType)\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations can be used to cache a DataFrame only in Spark's memory\nassuming the default arguments can be updated?\n",
+            "id": 45,
+            "options": [
+                "A. DataFrame.clearCache()\n",
+                "B. DataFrame.storageLevel\n",
+                "C. StorageLevel\n",
+                "D. DataFrame.persist()\n",
+                "E. DataFrame.cache()\n"
+            ]
+        },
+        {
+            "description": "The code block shown below contains an error. The code block is intended to return a new\n4-partition DataFrame from the 8-partition DataFrame storesDF without inducing a shuffle.\nIdentify the error.\nCode block:\nstoresDF.repartition(4)\n",
+            "id": 46,
+            "options": [
+                "A. The repartition operation will only work if the DataFrame has been cached to memory.\n",
+                "B. The repartition operation requires a column on which to partition rather than a number\nof partitions.\n",
+                "C. The number of resulting partitions, 4, is not achievable for an 8-partition DataFrame.\n",
+                "D. The repartition operation induced a full shuffle. The coalesce operation should be\nused instead.\n",
+                "E. The repartition operation cannot guarantee the number of result partitions.\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks will always return a new 12-partition DataFrame from the\n8-partition DataFrame storesDF?\n",
+            "id": 47,
+            "options": [
+                "A. storesDF.coalesce(12)\n",
+                "B. storesDF.repartition()\n",
+                "C. storesDF.repartition(12)\n",
+                "D. storesDF.coalesce()\n",
+                "E. storesDF.coalesce(12, \"storeId\")\n"
+            ]
+        },
+        {
+            "description": "Which of the following Spark config properties represents the number of partitions used in wide\ntransformations like join()?\n",
+            "id": 48,
+            "options": [
+                "A. spark.sql.shuffle.partitions\n",
+                "B. spark.shuffle.partitions\n",
+                "C. spark.shuffle.io.maxRetries\n",
+                "D. spark.shuffle.file.buffer\n",
+                "E. spark.default.parallelism\n"
+            ]
+        },
+        {
+            "description": "In what order should the below lines of code be run in order to return a DataFrame containing a\ncolumn openDateString, a string representation of Java's SimpleDateFormat?\nNote that column openDate is of type integer and represents a date in the UNIX epoch format -\nthe number of seconds since midnight on January 1st, 1970.\nAn example of Java's SimpleDateFormat is \"Sunday, Dec 4, 2008 1:05 PM\".\nA sample of storesDF is displayed below:\n--------------------\n|storeID|openDate  |\n--------------------\n|0      |1100746394|\n|1      |1474410343|\n|2      |111661009 |\n|3      |1180035265|\n|4      |1408024997|\n|...    |...       |\n--------------------\nLines of code:\n1. storesDF.withColumn(\"openDateString\",\nfrom_unixtime(col(\"openDate\"), simpleDateFormat))\n2. simpleDateFormat = \"EEEE, MMM d, yyyy h:mm a\"\n3. storesDF.withColumn(\"openDateString\",\nfrom_unixtime(col(\"openDate\"), SimpleDateFormat()))\n4. storesDF.withColumn(\"openDateString\",\ndate_format(col(\"openDate\"), simpleDateFormat))\n5. storesDF.withColumn(\"openDateString\",\ndate_format(col(\"openDate\"), SimpleDateFormat()))\n6. simpleDateFormat = \"wd, MMM d, yyyy h:mm a\"\n",
+            "id": 49,
+            "options": [
+                "A. 2, 3\n",
+                "B. 2, 1\n",
+                "C. 6, 5\n",
+                "D. 2, 4\n",
+                "E. 6, 1\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a DataFrame containing a column month, an integer\nrepresentation of the month from column openDate fromDataFrame storesDF?\nNote that column openDate is of type integer and represents a date in the UNIX epoch format -\nthe number of seconds since midnight on January 1st, 1970.\nA sample of storesDF is displayed below:\n--------------------\n|storeID|openDate  |\n--------------------\n|0      |1100746394|\n|1      |1474410343|\n|2      |111661009 |\n|3      |1180035265|\n|4      |1408024997|\n|...    |...       |\n--------------------\n",
+            "id": 50,
+            "options": [
+                "A. storesDF.withColumn(\"month\", getMonth(col(\"openDate\")))\n",
+                "B. storesDF.withColumn(\"openTimestamp\",\ncol(\"openDate\").cast(\"Timestamp\")).withColumn(\"month\",\nmonth(col(\"openTimestamp\")))\n",
+                "C. storesDF.withColumn(\"openDateFormat\",\ncol(\"openDate\").cast(\"Date\")).withColumn(\"month\",\nmonth(col(\"openDateFormat\")))\n",
+                "D. storesDF.withColumn(\"month\", substr(col(\"openDate\"), 4, 2))\n",
+                "E. storesDF.withColumn(\"month\", month(col(\"openDate\")))\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations performs an inner join on two DataFrames?\n",
+            "id": 51,
+            "options": [
+                "A. DataFrame.innerJoin()\n",
+                "B. DataFrame.join()\n",
+                "C. Standalone join() function\n",
+                "D. DataFrame.merge()\n",
+                "E. DataFrame.crossJoin()\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks returns a new DataFrame that is the result of an outer join\nbetween DataFrame storesDF and DataFrame employeesDF on column storeId?\n",
+            "id": 52,
+            "options": [
+                "A. storesDF.join(employeesDF, \"storeId\", \"outer\")\n",
+                "B. storesDF.join(employeesDF, \"storeId\")\n",
+                "C. storesDF.join(employeesDF, \"outer\", col(\"storeId\"))\n",
+                "D. storesDF.join(employeesDF, \"outer\", storesDF.storeId ==\nemployeesDF.storeId)\n",
+                "E. storesDF.merge(employeesDF, \"outer\", col(\"storeId\"))\n"
+            ]
+        },
+        {
+            "description": "The below code block contains an error. The code block is intended to return a new DataFrame that\nis the result of an inner join between DataFrame storesDF and DataFrame employeesDF on\ncolumn storeId and column employeeIdwhich are in both DataFrames. Identify the error.\nCode block:\nstoresDF.join(employeesDF, [col(\"storeId\"), col(\"employeeId\")])\n",
+            "id": 53,
+            "options": [
+                "A. The join() operation is a standalone function rather than a method of DataFrame - the\njoin() operation should be called where its first two arguments are storesDF and\nemployeesDF.\n",
+                "B. There must be a third argument to join() because the default to the how parameter is not\n\"inner\".\n",
+                "C. The col(\"storeId\") and col(\"employeeId\") arguments should not be separate\nelements of a list - they should be tested to see if they're equal to one another like\ncol(\"storeId\") == col(\"employeeId\").\n",
+                "D. There is no DataFrame.join() operation - DataFrame.merge() should be used\ninstead.\n",
+                "E. The references to \"storeId\" and \"employeeId\" should not be inside the col()\nfunction - removing the col() function should result in a successful join.\n"
+            ]
+        },
+        {
+            "description": "Which of the following Spark properties is used to configure the broadcasting of a DataFrame\nwithout the use of the broadcast() operation?\n",
+            "id": 54,
+            "options": [
+                "A. spark.sql.autoBroadcastJoinThreshold\n",
+                "B. spark.sql.broadcastTimeout\n",
+                "C. spark.broadcast.blockSize\n",
+                "D. spark.broadcast.compress\n",
+                "E. spark.executor.memoryOverhead\n"
+            ]
+        },
+        {
+            "description": "The code block shown below should return a new DataFrame that is the result of a cross join\nbetween DataFrame storesDF and DataFrame employeesDF. Choose the response that\ncorrectly fills in the numbered blanks within the code block to complete this task.\nCode block:\n__1__.__2__(__3__)\n",
+            "id": 55,
+            "options": [
+                "A.\n1. storesDF\n2. crossJoin\n3. employeesDF, \"storeId\"\n",
+                "B.\n1. storesDF\n2. join\n3. employeesDF, \"cross\"\n",
+                "C.\n1. storesDF\n2. crossJoin\n3. employeesDF, \"storeId\"\n",
+                "D.\n1. storesDF\n2. join\n3. employeesDF, \"storeId\", \"cross\"\n",
+                "E.\n1. storesDF\n2. crossJoin\n3. employeesDF\n"
+            ]
+        },
+        {
+            "description": "Which of the following operations performs a position-wise union on two DataFrames?\n",
+            "id": 56,
+            "options": [
+                "A. The standalone concat() function\n",
+                "B. The standalone unionAll() function\n",
+                "C. The standalone union() function\n",
+                "D. DataFrame.unionByName()\n",
+                "E. DataFrame.union()\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks writes DataFrame storesDF to file path filePath as\nparquet?\n",
+            "id": 57,
+            "options": [
+                "A. storesDF.write.option(\"parquet\").path(filePath)\n",
+                "B. storesDF.write.path(filePath)\n",
+                "C. storesDF.write().parquet(filePath)\n",
+                "D. storesDF.write(filePath)\n",
+                "E. storesDF.write.parquet(filePath)\n"
+            ]
+        },
+        {
+            "description": "The code block shown below contains an error. The code block is intended to write DataFrame\nstoresDF to file path filePath as parquet and partition by values in column division. Identify\nthe error.\nCode block:\nstoresDF.write.repartition(\"division\").parquet(filePath)\n",
+            "id": 58,
+            "options": [
+                "A. The argument division to operation repartition() should be wrapped in the col()\nfunction to return a Column object.\n",
+                "B. There is no parquet() operation for DataFrameWriter - the save() operation should be\nused instead.\n",
+                "C. There is no repartition() operation for DataFrameWriter - the partitionBy()\noperation should be used instead.\n",
+                "D. DataFrame.write is an operation - it should be followed by parentheses to return a\nDataFrameWriter.\n",
+                "E. The mode() operation must be called to specify that this write should not overwrite\nexisting files.\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks reads a parquet at the file path filePath into a DataFrame?\n",
+            "id": 59,
+            "options": [
+                "A. spark.read().parquet(filePath)\n",
+                "B. spark.read().path(filePath, source = \"parquet\")\n",
+                "C. spark.read.path(filePath, source = \"parquet\")\n",
+                "D. spark.read.parquet(filePath)\n",
+                "E. spark.read().path(filePath)\n"
+            ]
+        },
+        {
+            "description": "Which of the following code blocks reads JSON at the file path filePath into a DataFrame\nwith the specified schema schema?\n",
+            "id": 60,
+            "options": [
+                "A. spark.read().schema(schema).format(json).load(filePath)\n",
+                "B. spark.read().schema(schema).format(\"json\").load(filePath)\n",
+                "C. spark.read.schema(\"schema\").format(\"json\").load(filePath)\n",
+                "D. spark.read.schema(\"schema\").format(\"json\").load(filePath)\n",
+                "E. spark.read.schema(schema).format(\"json\").load(filePath)"
             ]
         }
-            
     ]
 }
