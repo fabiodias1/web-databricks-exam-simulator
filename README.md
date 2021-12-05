@@ -75,3 +75,7 @@ O internauta escolhe a opção que julga ser a correta e clica em "Send Answer",
 Caso o visitante tenha respondido todas as perguntas disponíveis, é mostrado seu desempenho (quantidade de acertos).  
 O internauta possui o tempo máximo de 2 horas para responder todas as questões, assim como no exame real. Em caso dele não conseguir responder todas as perguntas no tempo de 2 horas, ele é informado que o seu tempo acabou.  
 O visitante pode interromper o teste a qualquer momento clicando em "Stop Exam".  
+
+## Direitos autorais
+
+O conteúdo das questões deste repositório são de propriedade intelectual da Databricks Inc. (<a href="https://academy.databricks.com" target="_blank">https://academy.databricks.com</a>). Todos os direitos reservados.  
