@@ -1,0 +1,38 @@
+{
+    "questions":  [
+        {
+            "id": 1,
+            "description": "Which of the following DataFrame operations is always classified as a narrow transformation?",
+            "options": [
+                "A. DataFrame.sort()",
+                "B. DataFrame.distinct()",
+                "C. DataFrame.repartition()",
+                "D. DataFrame.select()",
+                "E. DataFrame.join()"
+            ]
+        },
+        {
+            "id": 2,
+            "description": "Which of the following is the default storage level for persist() for a non-streaming\nDataFrame/Dataset?",
+            "options": [
+                "A. MEMORY_AND_DISK",
+                "B. MEMORY_AND_DISK_SER",
+                "C. DISK_ONLY",
+                "D. MEMORY_ONLY_SER",
+                "E. MEMORY_ONLY"
+            ]
+        },
+        {
+            "id": 3,
+            "description": "Which of the following operations is most likely to induce a skew in the size of your data's\npartitions?",
+            "options": [
+                "A. DataFrame.collect()",
+                "B. DataFrame.cache()",
+                "C. DataFrame.repartition(n)",
+                "D. DataFrame.coalesce(n)",
+                "E. DataFrame.persist()"
+            ]
+        }
+            
+    ]
+}

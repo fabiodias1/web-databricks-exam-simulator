@@ -11,7 +11,7 @@ let obj_questions = {
     selectedQuestions:[]
 };
 
-const data_url = "http://localhost:8080/exam/data/";
+const data_url = "https://fabiodias1.github.io/web-databricks-exam-simulator/data/";
 
 
 function showTime() {
